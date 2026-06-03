@@ -11,15 +11,10 @@
       "static/chunks/main-app.js",
       "static/chunks/app/page.js"
     ],
-    "/query/page": [
+    "/practice-areas/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/query/page.js"
-    ],
-    "/team/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/team/page.js"
+      "static/chunks/app/practice-areas/page.js"
     ]
   }
 }
