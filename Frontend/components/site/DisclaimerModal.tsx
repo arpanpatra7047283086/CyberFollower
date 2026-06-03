@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ShieldAlert, CheckCircle2 } from "lucide-react";
 
-const STORAGE_KEY = "ala-disclaimer-ack";
+const STORAGE_KEY = "rsg-disclaimer-ack";
 
 export function DisclaimerModal() {
   const [open, setOpen] = useState(false);

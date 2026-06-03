@@ -1,15 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Building2, Shield, Gavel, Scale, FileText, Award, Briefcase, Landmark, Users, Globe, BookOpen, Lock, ArrowRight } from "lucide-react";
+import { Building2, Shield, Gavel, Scale, FileText, Award, Briefcase, Landmark, Users, Globe, BookOpen, Lock, ArrowRight, Home, Handshake } from "lucide-react";
 import { PageLayout } from "@/components/site/PageLayout";
 import { PageHero } from "@/components/site/PageHero";
 
 const fadeInUp = {
-  initial: { opacity: 0, y: 30 },
+  initial: { opacity: 0, y: 20 },
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+  viewport: { once: true, margin: "-50px" },
+  transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] }
 };
 
 const staggerContainer = {
@@ -22,27 +22,60 @@ const staggerContainer = {
 };
 
 const areas = [
-  { icon: Building2, t: "Corporate & Insolvency", d: "M&A, restructuring, NCLT representation, joint ventures and corporate governance advisory." },
-  { icon: Shield, t: "Cyber & Technology Law", d: "Data protection, IT Act matters, fintech compliance and cybercrime defence." },
-  { icon: Gavel, t: "Criminal Litigation", d: "Trial and appellate work at all levels including white-collar defence and economic offences." },
-  { icon: Scale, t: "Arbitration & Mediation", d: "Domestic and international arbitration, ADR proceedings and complex dispute resolution." },
-  { icon: FileText, t: "Banking & Finance", d: "Lending, recovery, DRT/SARFAESI proceedings and regulatory compliance." },
-  { icon: Award, t: "Constitutional & Public Law", d: "Writ petitions, PILs and high-stakes constitutional matters before High Courts and Supreme Court." },
-  { icon: Briefcase, t: "Commercial Litigation", d: "Complex commercial disputes, contract enforcement and recovery." },
-  { icon: Landmark, t: "Tax Law", d: "Direct and indirect tax advisory, GST, transfer pricing and tax litigation." },
-  { icon: Users, t: "Employment & Labour", d: "Workplace policies, industrial disputes, compliance and HR advisory." },
-  { icon: Globe, t: "Cross-Border Transactions", d: "FDI, FEMA, international trade and cross-border M&A advisory." },
-  { icon: BookOpen, t: "Intellectual Property", d: "Trademarks, patents, copyright protection and IP litigation." },
-  { icon: Lock, t: "Regulatory Compliance", d: "SEBI, RBI, competition law and sector-specific regulatory matters." },
+  {
+    icon: Gavel,
+    t: "Supreme Court Litigation",
+    d: "Expert representation in the Supreme Court of India, including Special Leave Petitions (SLPs), Writ Petitions, and Transfer Petitions by an Advocate-on-Record."
+  },
+  {
+    icon: Building2,
+    t: "Corporate & Commercial Law",
+    d: "Comprehensive advisory on business transactions, joint ventures, regulatory compliance, and commercial dispute resolution."
+  },
+  {
+    icon: Scale,
+    t: "Civil & Criminal Litigation",
+    d: "Strong advocacy across High Courts and District Courts for complex civil suits, property disputes, and criminal defense matters."
+  },
+  {
+    icon: Handshake,
+    t: "Insolvency & Bankruptcy (NCLT)",
+    d: "Specialized representation before NCLT and NCLAT for corporate insolvency resolution processes and debt recovery."
+  },
+  {
+    icon: Award,
+    t: "Matrimonial & Family Law",
+    d: "Sensitive and strategic legal support for divorce, maintenance, child custody, and family settlement disputes."
+  },
+  {
+    icon: Shield,
+    t: "Intellectual Property Rights",
+    d: "Protecting business assets through trademark registration, copyright protection, and IP infringement litigation."
+  },
+  {
+    icon: Home,
+    t: "Real Estate & Property Law",
+    d: "Legal assistance in property title verification, builder-buyer disputes, and RERA related litigation."
+  },
+  {
+    icon: FileText,
+    t: "Arbitration & Conciliation",
+    d: "Representing clients in domestic and international arbitration proceedings for swift and effective dispute resolution."
+  },
+  {
+    icon: Landmark,
+    t: "Constitutional Matters",
+    d: "Handling high-stakes constitutional challenges and writ petitions involving the enforcement of fundamental rights."
+  }
 ];
 
 export default function PracticeAreas() {
   return (
     <PageLayout>
       <PageHero
-        eyebrow="Specialization"
+        eyebrow="Our Expertise"
         title="Practice Areas."
-        subtitle="A multi-disciplinary firm delivering depth and breadth across India's most complex legal domains."
+        subtitle="RSG Associates provides a wide range of legal services with a focus on delivering result-oriented solutions across various jurisdictions."
       />
 
       <section className="py-32 bg-background relative overflow-hidden">
@@ -74,7 +107,7 @@ export default function PracticeAreas() {
                   <p className="mt-6 text-sm leading-relaxed text-muted-foreground">{a.d}</p>
 
                   <div className="mt-8 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-gold opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
-                    Consultation <ArrowRight className="h-3 w-3" />
+                    Learn More <ArrowRight className="h-3 w-3" />
                   </div>
                 </div>
               </motion.div>
@@ -91,11 +124,11 @@ export default function PracticeAreas() {
           viewport={{ once: true }}
           className="mx-auto max-w-4xl px-6"
         >
-          <h2 className="font-display text-4xl md:text-5xl text-white">Need expert legal advice?</h2>
-          <p className="mt-6 text-lg text-white/60">Our team of specialists is ready to handle your unique legal challenges.</p>
+          <h2 className="font-display text-4xl md:text-5xl text-white">Require specialized legal assistance?</h2>
+          <p className="mt-6 text-lg text-white/60">Our team is ready to provide the expertise your legal matter deserves.</p>
           <div className="mt-10">
             <button className="rounded-full bg-gold px-10 py-4 text-sm font-bold text-primary hover:scale-105 transition-transform shadow-xl">
-              Request a Specialist
+              Contact an Expert
             </button>
           </div>
         </motion.div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ShieldCheck, Clock, Users, Trophy, Heart, Zap, ArrowRight } from "lucide-react";
+import { ShieldCheck, Clock, Users, Trophy, Heart, Zap, ArrowRight, Scale, Gavel } from "lucide-react";
 import { PageLayout } from "@/components/site/PageLayout";
 import { PageHero } from "@/components/site/PageHero";
 import Link from "next/link";
@@ -23,21 +23,45 @@ const staggerContainer = {
 };
 
 const reasons = [
-  { icon: Trophy, t: "Proven Track Record", d: "98% case success rate across 5,000+ matters spanning six decades of practice." },
-  { icon: ShieldCheck, t: "Absolute Confidentiality", d: "Bank-grade security and watertight ethics safeguard every client matter." },
-  { icon: Clock, t: "Rapid Response", d: "Initial feedback within 24–72 working hours — every query, every time." },
-  { icon: Users, t: "Team of Specialists", d: "120+ legal professionals with deep expertise across 12 practice areas." },
-  { icon: Heart, t: "Client-First Approach", d: "Tailored strategies — never one-size-fits-all advice." },
-  { icon: Zap, t: "Tech-Enabled Practice", d: "Modern legal-tech tooling for case tracking, e-discovery and faster turnarounds." },
+  {
+    icon: Gavel,
+    t: "Supreme Court Expertise",
+    d: "Led by an Advocate-on-Record, we provide specialized representation in the highest court of the land."
+  },
+  {
+    icon: ShieldCheck,
+    t: "Ethical Advocacy",
+    d: "We strictly adhere to the highest professional and ethical standards in all our legal dealings."
+  },
+  {
+    icon: Clock,
+    t: "Timely Solutions",
+    d: "We understand the value of time in legal matters and strive for efficient and prompt resolution."
+  },
+  {
+    icon: Scale,
+    t: "Strategic Approach",
+    d: "Every case is analyzed with legal precision and strategic foresight to ensure the best possible outcome."
+  },
+  {
+    icon: Heart,
+    t: "Client Trust",
+    d: "Building long-term relationships through transparent communication and dedicated service."
+  },
+  {
+    icon: Zap,
+    t: "Result-Oriented",
+    d: "Our primary focus remains on delivering tangible results that meet our clients' legal objectives."
+  },
 ];
 
 export default function WhyChoose() {
   return (
     <PageLayout>
       <PageHero
-        eyebrow="The ALA Advantage"
-        title="Why Choose Us."
-        subtitle="What makes Agarwal Law Associates the trusted choice for India's most demanding legal matters."
+        eyebrow="The RSG Edge"
+        title="Why RSG Associates."
+        subtitle="Discover why clients trust us with their most complex legal challenges across Indian courts."
       />
 
       <section className="relative py-32 bg-background overflow-hidden">
@@ -90,16 +114,16 @@ export default function WhyChoose() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-                <h2 className="font-display text-5xl md:text-6xl text-primary">Ready to experience <br /> <span className="text-gold italic">Legal Excellence?</span></h2>
+                <h2 className="font-display text-5xl md:text-6xl text-primary">Experience <br /> <span className="text-gold italic">Legal Mastery.</span></h2>
                 <p className="mt-8 text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                    Join the thousands of clients who have trusted us with their most critical legal challenges over the last 60 years.
+                    Partner with RSG Associates for dedicated legal representation and professional counsel.
                 </p>
                 <div className="mt-12 flex flex-wrap justify-center gap-6">
                     <Link href="/query" className="rounded-full bg-gold px-12 py-5 text-sm font-bold text-primary shadow-2xl hover:scale-105 transition-transform">
-                        Start Your Query
+                        Start an Inquiry
                     </Link>
                     <Link href="/contact" className="rounded-full border border-border px-12 py-5 text-sm font-bold text-primary hover:bg-secondary transition-all">
-                        Find an Office
+                        Contact Us
                     </Link>
                 </div>
             </motion.div>

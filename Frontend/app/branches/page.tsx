@@ -1,35 +1,51 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MapPin, Phone, Mail, Globe } from "lucide-react";
+import { MapPin, Phone, Mail, Globe, Gavel } from "lucide-react";
 import { PageLayout } from "@/components/site/PageLayout";
 import { PageHero } from "@/components/site/PageHero";
 
 const fadeInUp = {
-  initial: { opacity: 0, y: 30 },
+  initial: { opacity: 0, y: 20 },
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+  viewport: { once: true, margin: "-50px" },
+  transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] }
 };
 
 const staggerContainer = {
   initial: { opacity: 0 },
   whileInView: {
     opacity: 1,
-    transition: { staggerChildren: 0.08, delayChildren: 0.1 }
+    transition: { staggerChildren: 0.1, delayChildren: 0.1 }
   },
   viewport: { once: true }
 };
 
 const branches = [
-  { city: "New Delhi", addr: "Ground Floor, Mercantile House, 15 Kasturba Gandhi Marg", phone: "+91 11 4000 0000", email: "delhi@agarwallaw.in", primary: true },
-  { city: "Mumbai", addr: "12th Floor, Maker Chambers IV, Nariman Point", phone: "+91 22 6000 0000", email: "mumbai@agarwallaw.in" },
-  { city: "Bengaluru", addr: "UB City, Vittal Mallya Road", phone: "+91 80 4000 0000", email: "blr@agarwallaw.in" },
-  { city: "Kolkata", addr: "Park Mansions, Park Street", phone: "+91 33 4000 0000", email: "kol@agarwallaw.in" },
-  { city: "Chennai", addr: "Spencer Plaza, Anna Salai", phone: "+91 44 4000 0000", email: "chennai@agarwallaw.in" },
-  { city: "Hyderabad", addr: "Cyber Towers, HITEC City", phone: "+91 40 4000 0000", email: "hyd@agarwallaw.in" },
-  { city: "Ahmedabad", addr: "Iscon Centre, S.G. Highway", phone: "+91 79 4000 0000", email: "amd@agarwallaw.in" },
-  { city: "Pune", addr: "ICC Trade Tower, Senapati Bapat Road", phone: "+91 20 4000 0000", email: "pune@agarwallaw.in" },
+  {
+    city: "New Delhi",
+    tag: "Principal Office",
+    addr: "New Delhi, India",
+    phone: "+91 99102 34444",
+    email: "rsg.associates@outlook.com",
+    primary: true
+  },
+  {
+    city: "Supreme Court",
+    tag: "Legal Chamber",
+    addr: "Chamber No. 48, Supreme Court of India, Tilak Marg, New Delhi",
+    phone: "+91 99102 34444",
+    email: "rsg.associates@outlook.com",
+    icon: Gavel
+  },
+  {
+    city: "Delhi High Court",
+    tag: "Legal Chamber",
+    addr: "Sher Shah Road, New Delhi",
+    phone: "+91 99102 34444",
+    email: "rsg.associates@outlook.com",
+    icon: Gavel
+  },
 ];
 
 export default function Branches() {
@@ -37,8 +53,8 @@ export default function Branches() {
     <PageLayout>
       <PageHero
         eyebrow="Presence"
-        title="Our Network."
-        subtitle="Eight strategically located offices delivering uniformly excellent legal service across the Indian subcontinent."
+        title="Our Locations."
+        subtitle="RSG Associates maintains a strong presence in New Delhi, operating from our principal office and strategic chambers in the Supreme Court and High Court."
       />
 
       <section className="py-32 bg-background relative overflow-hidden">
@@ -49,7 +65,7 @@ export default function Branches() {
             initial="initial"
             whileInView="whileInView"
             viewport={{ once: true }}
-            className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+            className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 justify-center"
           >
             {branches.map((b, i) => (
               <motion.div
@@ -69,12 +85,12 @@ export default function Branches() {
                 <div className="flex items-start justify-between relative z-10">
                   <div>
                     <div className={`text-[10px] uppercase tracking-[0.2em] font-bold ${b.primary ? "text-gold" : "text-accent"}`}>
-                      {b.primary ? "Headquarters" : "Regional Office"}
+                      {b.tag}
                     </div>
                     <h3 className={`mt-4 font-display text-4xl tracking-tight ${b.primary ? "" : "text-primary"}`}>{b.city}</h3>
                   </div>
                   <div className={`grid h-14 w-14 place-items-center rounded-2xl ${b.primary ? "bg-gold/20 text-gold" : "bg-primary/5 text-primary group-hover:bg-gold group-hover:text-primary"} transition-all duration-500`}>
-                    <MapPin className="h-7 w-7" />
+                    {b.icon ? <b.icon className="h-7 w-7" /> : <MapPin className="h-7 w-7" />}
                   </div>
                 </div>
 
@@ -99,7 +115,7 @@ export default function Branches() {
         </div>
       </section>
 
-      {/* MAP PLACEHOLDER / GLOBAL REACH */}
+      {/* GLOBAL REACH */}
       <section className="bg-surface-dark py-32 text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
         <motion.div
@@ -109,9 +125,9 @@ export default function Branches() {
           className="relative z-10 mx-auto max-w-4xl px-6"
         >
           <Globe className="mx-auto h-16 w-16 text-gold mb-8 opacity-20" />
-          <h2 className="font-display text-5xl md:text-6xl text-white">Seamless <span className="text-gold italic">Legal Coverage</span></h2>
+          <h2 className="font-display text-5xl md:text-6xl text-white">Comprehensive <span className="text-gold italic">Legal Representation</span></h2>
           <p className="mt-8 text-xl text-white/60 max-w-2xl mx-auto">
-            Our interconnected offices allow for swift legal intervention across any major jurisdiction in India within hours.
+            Our offices are strategically positioned to provide swift legal intervention and representation across all major courts in the National Capital Region.
           </p>
         </motion.div>
       </section>

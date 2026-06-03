@@ -67,8 +67,10 @@
   --surface-dark: oklch(0.15 0.02 50);
   --surface-dark-foreground: oklch(0.95 0.01 85);
   --gold: oklch(0.75 0.13 75);
-  --font-display: "Cormorant Garamond", "Playfair Display", Georgia, serif;
-  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+
+  /* Using variables from Next.js fonts */
+  --font-display: var(--font-cormorant), "Playfair Display", Georgia, serif;
+  --font-body: var(--font-inter), system-ui, -apple-system, sans-serif;
 }
 
 :root {

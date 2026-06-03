@@ -3,8 +3,15 @@
 import Link from "next/link";
 import { Linkedin, Youtube, Mail, Phone, Scale, ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export function Footer() {
+  const [year, setYear] = useState<number>(2025);
+
+  useEffect(() => {
+    setYear(new Date().getFullYear());
+  }, []);
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -21,12 +28,12 @@ export function Footer() {
                 <Scale className="h-6 w-6" />
               </div>
               <div>
-                <div className="font-display text-2xl font-bold tracking-tight uppercase leading-none">Agarwal Law</div>
+                <div className="font-display text-2xl font-bold tracking-tight uppercase leading-none">RSG</div>
                 <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold/80 mt-1">Associates</div>
               </div>
             </Link>
             <p className="text-sm leading-relaxed text-surface-dark-foreground/60 max-w-xs">
-              Redefining legal excellence through six decades of courtroom mastery and modern innovation. Trusted partners for India's most complex challenges.
+              Commitment to legal excellence and integrity. Led by Ravi S. Gupta (AOR), we provide strategic solutions for complex legal challenges across India.
             </p>
             <div className="flex gap-4">
               {[
@@ -49,10 +56,10 @@ export function Footer() {
             <h4 className="font-display text-xl text-gold mb-8 uppercase tracking-widest text-[11px] font-bold">The Firm</h4>
             <ul className="space-y-4 text-sm text-surface-dark-foreground/60">
               {[
-                { href: "/about", label: "Our Story" },
+                { href: "/about", label: "Our Profile" },
                 { href: "/team", label: "Our Team" },
-                { href: "/why-choose-us", label: "The Advantage" },
-                { href: "/branches", label: "Presence" },
+                { href: "/why-choose-us", label: "Why RSG" },
+                { href: "/branches", label: "Locations" },
               ].map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className="group flex items-center gap-2 hover:text-gold transition-colors">
@@ -67,11 +74,11 @@ export function Footer() {
           <div>
             <h4 className="font-display text-xl text-gold mb-8 uppercase tracking-widest text-[11px] font-bold">Expertise</h4>
             <ul className="space-y-4 text-sm text-surface-dark-foreground/60">
-              <li><span className="hover:text-gold transition-colors cursor-default">Corporate & Insolvency</span></li>
-              <li><span className="hover:text-gold transition-colors cursor-default">Cyber & Tech Law</span></li>
-              <li><span className="hover:text-gold transition-colors cursor-default">Criminal Litigation</span></li>
-              <li><span className="hover:text-gold transition-colors cursor-default">Arbitration & ADR</span></li>
-              <li><span className="hover:text-gold transition-colors cursor-default">Banking & Finance</span></li>
+              <li><span className="hover:text-gold transition-colors cursor-default">Supreme Court Litigation</span></li>
+              <li><span className="hover:text-gold transition-colors cursor-default">Corporate & Commercial</span></li>
+              <li><span className="hover:text-gold transition-colors cursor-default">Criminal Defense</span></li>
+              <li><span className="hover:text-gold transition-colors cursor-default">Real Estate Law</span></li>
+              <li><span className="hover:text-gold transition-colors cursor-default">Family Law</span></li>
             </ul>
           </div>
 
@@ -82,13 +89,13 @@ export function Footer() {
                 <div className="h-8 w-8 shrink-0 rounded-lg bg-white/5 flex items-center justify-center border border-white/5">
                   <Mail className="h-4 w-4 text-gold" />
                 </div>
-                <span className="hover:text-white transition-colors">contact@agarwallaw.in</span>
+                <span className="hover:text-white transition-colors">rsg.associates@outlook.com</span>
               </li>
               <li className="flex items-start gap-4">
                 <div className="h-8 w-8 shrink-0 rounded-lg bg-white/5 flex items-center justify-center border border-white/5">
                   <Phone className="h-4 w-4 text-gold" />
                 </div>
-                <span className="hover:text-white transition-colors">+91 11 4000 0000</span>
+                <span className="hover:text-white transition-colors">+91 99102 34444</span>
               </li>
               <li className="pt-4 border-t border-white/5">
                 <Link href="/terms" className="text-[10px] uppercase tracking-widest font-bold hover:text-gold transition-colors">
@@ -103,12 +110,12 @@ export function Footer() {
       <div className="border-t border-white/5 bg-black/20">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-6 py-10 text-[10px] font-bold uppercase tracking-[0.2em] text-surface-dark-foreground/40 sm:flex-row">
           <div className="flex items-center gap-4">
-             <span>© {new Date().getFullYear()} Agarwal Law Associates.</span>
+             <span>© {year} RSG Associates.</span>
              <div className="h-1 w-1 rounded-full bg-gold/40" />
              <span>All rights reserved.</span>
           </div>
           <div className="flex items-center gap-8">
-            <span className="text-gold/50 italic font-display lowercase tracking-normal text-sm font-normal">SLA: 24–72 working hours response.</span>
+            <span className="text-gold/50 italic font-display lowercase tracking-normal text-sm font-normal">Response Time: 24–72 working hours.</span>
             <button
               onClick={scrollToTop}
               className="group flex items-center gap-2 text-white/60 hover:text-gold transition-colors"

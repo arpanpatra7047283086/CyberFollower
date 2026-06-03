@@ -6,10 +6,10 @@ import { PageLayout } from "@/components/site/PageLayout";
 import { PageHero } from "@/components/site/PageHero";
 
 const fadeInUp = {
-  initial: { opacity: 0, y: 30 },
+  initial: { opacity: 0, y: 20 },
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+  viewport: { once: true, margin: "-50px" },
+  transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] }
 };
 
 const staggerContainer = {
@@ -22,27 +22,42 @@ const staggerContainer = {
 };
 
 const leaders = [
-  { img: "/assets/lawyer-1.jpg", name: "E.C. Agarwal", role: "Founding Partner", bio: "60+ years of legal practice. A pioneer of modern corporate and constitutional law in India." },
-  { img: "/assets/lawyer-2.jpg", name: "Mahesh Agarwal", role: "Managing Partner", bio: "Heads the corporate and insolvency practice with three decades of landmark litigation experience." },
-  { img: "/assets/lawyer-3.jpg", name: "Rishi Agarwal", role: "Partner — Litigation", bio: "Specializes in complex dispute resolution and international arbitration proceedings." },
+  {
+    img: "/AdvRaviSGupta2.png",
+    name: "Ravi S. Gupta",
+    role: "Advocate-on-Record",
+    bio: "Advocate-on-Record in the Supreme Court of India with over two decades of experience in handling complex litigation across Supreme Court, High Courts, and specialized Tribunals."
+  },
+  {
+    img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop",
+    name: "Senior Associates",
+    role: "Legal Team",
+    bio: "Our team of senior associates brings deep expertise in civil, criminal, and corporate law, ensuring comprehensive legal support for our clients."
+  },
+  {
+    img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1974&auto=format&fit=crop",
+    name: "Legal Consultants",
+    role: "Strategic Advisors",
+    bio: "Collaborating with subject matter experts to provide strategic insights on regulatory compliance and specialized legal challenges."
+  },
 ];
 
 const associates = [
-  { name: "Ankur Saigal", role: "Senior Associate", dept: "Corporate" },
-  { name: "Rajeev Kumar", role: "Senior Associate", dept: "Criminal" },
-  { name: "Manu Krishnan", role: "Associate Partner", dept: "Insolvency" },
-  { name: "Priya Sharma", role: "Cyber Law Lead", dept: "Technology" },
-  { name: "Arjun Mehta", role: "Tax & Regulatory", dept: "Finance" },
-  { name: "Neha Verma", role: "Banking & Finance", dept: "Lending" },
+  { name: "Legal Team Delhi", role: "Specialists", dept: "Litigation" },
+  { name: "Corporate Desk", role: "Advisors", dept: "Corporate" },
+  { name: "Criminal Defense", role: "Counsel", dept: "Criminal" },
+  { name: "Family Law Cell", role: "Counsel", dept: "Matrimonial" },
+  { name: "IPR Division", role: "Experts", dept: "Intellectual Property" },
+  { name: "Property Desk", role: "Experts", dept: "Real Estate" },
 ];
 
 export default function Team() {
   return (
     <PageLayout>
       <PageHero
-        eyebrow="Leadership"
-        title="Distinguished Minds."
-        subtitle="A multi-generational collective of legal experts dedicated to the highest standards of advocacy."
+        eyebrow="Our Team"
+        title="Expert Legal Minds."
+        subtitle="Led by Ravi S. Gupta, our team is dedicated to providing high-quality legal representation and strategic advice."
       />
 
       {/* PARTNERS SECTION */}
@@ -56,8 +71,8 @@ export default function Team() {
             viewport={{ once: true }}
             className="text-center mb-24"
           >
-            <div className="text-[11px] uppercase tracking-[0.4em] text-accent font-bold">Partners</div>
-            <h2 className="mt-4 font-display text-5xl text-primary md:text-6xl">Firm Leadership</h2>
+            <div className="text-[11px] uppercase tracking-[0.4em] text-accent font-bold">Leadership</div>
+            <h2 className="mt-4 font-display text-5xl text-primary md:text-6xl">Founding Counsel</h2>
             <div className="mt-6 mx-auto h-1 w-20 bg-gold" />
           </motion.div>
 
@@ -80,7 +95,7 @@ export default function Team() {
                     transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                     src={l.img}
                     alt={l.name}
-                    className="h-full w-full object-cover grayscale-[0.5] group-hover:grayscale-0 transition-all duration-700"
+                    className="h-full w-full object-cover grayscale-[0.3] group-hover:grayscale-0 transition-all duration-700"
                   />
 
                   {/* Glass Overlay */}
@@ -126,8 +141,8 @@ export default function Team() {
             viewport={{ once: true }}
             className="text-center mb-20"
           >
-            <div className="text-[11px] uppercase tracking-[0.4em] text-gold font-bold">Legal Talent</div>
-            <h2 className="mt-4 font-display text-5xl text-white">Associate Partners</h2>
+            <div className="text-[11px] uppercase tracking-[0.4em] text-gold font-bold">Our Network</div>
+            <h2 className="mt-4 font-display text-5xl text-white">Professional Associates</h2>
           </motion.div>
 
           <motion.div

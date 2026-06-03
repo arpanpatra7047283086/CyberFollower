@@ -12,16 +12,18 @@ const navItems = [
   { href: "/practice-areas", label: "Practice Areas" },
   { href: "/branches", label: "Our Branches" },
   { href: "/team", label: "Our Team" },
-  { href: "/why-choose-us", label: "Why Choose Us" },
+  { href: "/why-choose-us", label: "Why RSG" },
   { href: "/contact", label: "Contact" },
 ] as const;
 
 export function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
+    setMounted(true);
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
@@ -29,13 +31,14 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Prevent hydration mismatch by only rendering logic-dependent classes after mount
+  const headerClasses = scrolled
+    ? "border-b border-border bg-background/80 backdrop-blur-xl py-3"
+    : "bg-transparent py-5";
+
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "border-b border-border bg-background/80 backdrop-blur-xl py-3"
-          : "bg-transparent py-5"
-      }`}
+      className={`sticky top-0 z-50 transition-all duration-500 ${mounted ? headerClasses : "bg-transparent py-5"}`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6">
         <Link href="/" className="flex items-center gap-3 group">
@@ -47,7 +50,7 @@ export function Header() {
           </motion.div>
           <div className="leading-tight">
             <div className="font-display text-xl font-bold tracking-tight text-primary uppercase">
-              Agarwal Law
+              RSG
             </div>
             <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold/80">
               Associates

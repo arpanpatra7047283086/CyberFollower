@@ -1,10 +1,4 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
-  "/page": "app/page.js",
-  "/practice-areas/page": "app/practice-areas/page.js",
-  "/about/page": "app/about/page.js",
-  "/branches/page": "app/branches/page.js",
-  "/team/page": "app/team/page.js",
-  "/why-choose-us/page": "app/why-choose-us/page.js",
-  "/contact/page": "app/contact/page.js"
+  "/contact/page": "app/contact/page.js",
+  "/page": "app/page.js"
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { z } from "zod";
 import { Send, CheckCircle2, Clock, Search, ShieldCheck, ArrowRight } from "lucide-react";
@@ -8,9 +8,9 @@ import { PageLayout } from "@/components/site/PageLayout";
 import { PageHero } from "@/components/site/PageHero";
 
 const fadeInUp = {
-  initial: { opacity: 0, y: 30 },
+  initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+  transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] }
 };
 
 const schema = z.object({
@@ -42,6 +42,13 @@ export default function QueryPage() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+  const [refId, setRefId] = useState("");
+
+  useEffect(() => {
+    if (submitted) {
+      setRefId(`RSG-${Date.now().toString().slice(-8)}`);
+    }
+  }, [submitted]);
 
   const update = <K extends keyof FormData>(k: K, v: FormData[K]) => {
     setForm((f) => ({ ...f, [k]: v }));
@@ -99,9 +106,9 @@ export default function QueryPage() {
                     <CheckCircle2 className="h-12 w-12" />
                   </div>
                   <h2 className="mt-10 font-display text-5xl text-primary">Query Received.</h2>
-                  <p className="mt-4 text-muted-foreground font-display text-xl italic">Reference: <span className="font-mono text-gold not-italic font-bold">ALA-{Date.now().toString().slice(-8)}</span></p>
+                  <p className="mt-4 text-muted-foreground font-display text-xl italic">Reference: <span className="font-mono text-gold not-italic font-bold">{refId}</span></p>
                   <p className="mt-8 max-w-md mx-auto text-lg leading-relaxed text-muted-foreground">
-                    Your information has been encrypted and sent to our senior partners. We will respond via your provided mobile within 72 hours.
+                    Your information has been encrypted and sent to our legal team. We will respond via your provided mobile within 72 hours.
                   </p>
                   <button
                     onClick={() => { setForm(initial); setSubmitted(false); }}
@@ -169,7 +176,7 @@ export default function QueryPage() {
 
           {/* SIDEBAR SIDE */}
           <motion.aside
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -193,7 +200,7 @@ export default function QueryPage() {
                 <input
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    placeholder="ALA-XXXXXXXX"
+                    placeholder="RSG-XXXXXXXX"
                     className={inputCls}
                 />
                 <button className="rounded-xl bg-primary py-3 text-sm font-bold text-white hover:bg-primary/90 transition-colors">
